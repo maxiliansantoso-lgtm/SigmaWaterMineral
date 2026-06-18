@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +32,9 @@
       font-size: 0.95rem;
     }
 
-    .form-group input, .form-group textarea, .form-group select {
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-color);
       border-radius: var(--border-radius);
@@ -42,7 +45,9 @@
       transition: border-color var(--transition-speed);
     }
 
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
       border-color: var(--accent-blue);
     }
 
@@ -65,6 +70,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <nav>
@@ -83,8 +89,10 @@
 
       <!-- Language Selector -->
       <span class="lang-selector" style="margin-left: 2rem;">
-        <button id="lang-btn-en" onclick="setLang('en')" class="btn btn-outline" style="padding: 0.2rem 0.6rem; font-size: 0.8rem; border-radius: 4px; cursor: pointer;">EN</button>
-        <button id="lang-btn-id" onclick="setLang('id')" class="btn btn-outline" style="padding: 0.2rem 0.6rem; font-size: 0.8rem; border-radius: 4px; cursor: pointer;">ID</button>
+        <button id="lang-btn-en" onclick="setLang('en')" class="btn btn-outline"
+          style="padding: 0.2rem 0.6rem; font-size: 0.8rem; border-radius: 4px; cursor: pointer;">EN</button>
+        <button id="lang-btn-id" onclick="setLang('id')" class="btn btn-outline"
+          style="padding: 0.2rem 0.6rem; font-size: 0.8rem; border-radius: 4px; cursor: pointer;">ID</button>
       </span>
     </div>
   </nav>
@@ -93,57 +101,84 @@
     <div class="container fade-in">
       <h1 class="lang-en">Distributor Partnership</h1>
       <h1 class="lang-id">Kemitraan Distributor</h1>
-      <p class="text-muted lang-en">Join us as an official distribution partner for premium Sigma Water in your region.</p>
-      <p class="text-muted lang-id">Bergabunglah sebagai mitra resmi penyalur air mineral premium Sigma Water di wilayah Anda.</p>
+      <p class="text-muted lang-en">Join us as an official distribution partner for premium Sigma Water in your region.
+      </p>
+      <p class="text-muted lang-id">Bergabunglah sebagai mitra resmi penyalur air mineral premium Sigma Water di wilayah
+        Anda.</p>
     </div>
   </header>
 
   <section class="section-padding" style="padding-top: 0;">
     <div class="container">
       <div class="grid-2 mb-3">
-        
+
         <!-- Benefits -->
         <div class="fade-in">
           <h2 class="mb-2 lang-en">Why Partner With Us?</h2>
           <h2 class="mb-2 lang-id">Mengapa Menjadi Mitra Kami?</h2>
-          
+
           <div style="display: flex; flex-direction: column; gap: 2rem;">
             <!-- Benefit 1 -->
             <div class="benefit-item">
               <div class="benefit-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="vertical-align: middle;">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                </svg>
               </div>
               <div>
                 <h3 class="lang-en">Special Wholesale Pricing</h3>
                 <h3 class="lang-id">Harga Grosir Khusus</h3>
-                <p class="text-muted lang-en">Get maximum profit margins with official distributor wholesale pricing.</p>
-                <p class="text-muted lang-id">Dapatkan margin keuntungan maksimal dengan skema harga khusus distributor resmi.</p>
+                <p class="text-muted lang-en">Get maximum profit margins with official distributor wholesale pricing.
+                </p>
+                <p class="text-muted lang-id">Dapatkan margin keuntungan maksimal dengan skema harga khusus distributor
+                  resmi.</p>
               </div>
             </div>
-            
+
             <!-- Benefit 2 -->
             <div class="benefit-item">
               <div class="benefit-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="vertical-align: middle;">
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                  <line x1="12" y1="22.08" x2="12" y2="12" />
+                </svg>
               </div>
               <div>
                 <h3 class="lang-en">Stock & Supply Priority</h3>
                 <h3 class="lang-id">Prioritas Stok & Supply</h3>
-                <p class="text-muted lang-en">Guaranteed smooth water supply directly from our bottling facility in Central Sulawesi.</p>
-                <p class="text-muted lang-id">Jaminan kelancaran pasokan air langsung dari fasilitas pembotolan kami di Sulawesi Tengah.</p>
+                <p class="text-muted lang-en">Guaranteed smooth water supply directly from our bottling facility in
+                  Central Sulawesi.</p>
+                <p class="text-muted lang-id">Jaminan kelancaran pasokan air langsung dari fasilitas pembotolan kami di
+                  Sulawesi Tengah.</p>
               </div>
             </div>
-            
+
             <!-- Benefit 3 -->
             <div class="benefit-item">
               <div class="benefit-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="vertical-align: middle;">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
               </div>
               <div>
                 <h3 class="lang-en">Marketing Support</h3>
                 <h3 class="lang-id">Bantuan Pemasaran</h3>
-                <p class="text-muted lang-en">Receive marketing materials such as banners, digital brochures, and official agent location map listings.</p>
-                <p class="text-muted lang-id">Mendapatkan dukungan materi pemasaran berupa banner, brosur digital, dan pencantuman lokasi agen.</p>
+                <p class="text-muted lang-en">Receive marketing materials such as banners, digital brochures, and
+                  official agent location map listings.</p>
+                <p class="text-muted lang-id">Mendapatkan dukungan materi pemasaran berupa banner, brosur digital, dan
+                  pencantuman lokasi agen.</p>
               </div>
             </div>
           </div>
@@ -162,7 +197,7 @@
               <input type="text" id="businessEn" required placeholder="Example: CV. Maju Bersama">
             </div>
             <div class="form-group">
-              <label for="locationEn">Targeted Distribution Region</label>
+              <label for="locationEn">Address</label>
               <input type="text" id="locationEn" required placeholder="Example: East Palu, Central Sulawesi">
             </div>
             <div class="form-group">
@@ -177,7 +212,8 @@
             </div>
             <div class="form-group">
               <label for="noteEn">Additional Notes</label>
-              <textarea id="noteEn" rows="3" placeholder="Any additional details about your business plan..."></textarea>
+              <textarea id="noteEn" rows="3"
+                placeholder="Any additional details about your business plan..."></textarea>
             </div>
             <button type="submit" class="btn btn-primary" style="width: 100%;">Apply via WhatsApp</button>
           </form>
@@ -196,7 +232,7 @@
               <input type="text" id="businessId" required placeholder="Contoh: CV. Maju Bersama">
             </div>
             <div class="form-group">
-              <label for="locationId">Wilayah Rencana Distribusi</label>
+              <label for="locationId">Alamat</label>
               <input type="text" id="locationId" required placeholder="Contoh: Palu Timur, Sulawesi Tengah">
             </div>
             <div class="form-group">
@@ -211,7 +247,8 @@
             </div>
             <div class="form-group">
               <label for="noteId">Catatan Tambahan</label>
-              <textarea id="noteId" rows="3" placeholder="Informasi tambahan mengenai rencana bisnis Anda..."></textarea>
+              <textarea id="noteId" rows="3"
+                placeholder="Informasi tambahan mengenai rencana bisnis Anda..."></textarea>
             </div>
             <button type="submit" class="btn btn-primary" style="width: 100%;">Ajukan via WhatsApp</button>
           </form>
@@ -226,8 +263,10 @@
       <div class="footer-content">
         <div class="footer-col">
           <div class="nav-brand mb-1">Σ SIGMA WATER</div>
-          <p class="text-muted lang-en">Pure mineral water from the deep aquifers of Central Sulawesi, Indonesia. Established in 2016.</p>
-          <p class="text-muted lang-id">Air mineral murni dari akuifer dalam Sulawesi Tengah, Indonesia. Didirikan sejak 2016.</p>
+          <p class="text-muted lang-en">Pure mineral water from the deep aquifers of Central Sulawesi, Indonesia.
+            Established in 2016.</p>
+          <p class="text-muted lang-id">Air mineral murni dari akuifer dalam Sulawesi Tengah, Indonesia. Didirikan sejak
+            2016.</p>
         </div>
         <div class="footer-col">
           <h4 class="lang-en">Fulfillment Shop</h4>
@@ -261,7 +300,8 @@
           <h4 class="lang-en">Contact Us</h4>
           <h4 class="lang-id">Hubungi Kami</h4>
           <p class="text-muted mb-1">WhatsApp Support:</p>
-          <a href="https://wa.me/6281584700009" target="_blank" style="color: var(--accent-blue); font-weight: 600;">081584700009</a>
+          <a href="https://wa.me/6281584700009" target="_blank"
+            style="color: var(--accent-blue); font-weight: 600;">081584700009</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -275,7 +315,7 @@
     function submitForm(event, lang) {
       event.preventDefault();
       let name, business, location, volume, note;
-      
+
       if (lang === 'en') {
         name = document.getElementById('nameEn').value;
         business = document.getElementById('businessEn').value;
@@ -289,18 +329,19 @@
         volume = document.getElementById('volumeId').value;
         note = document.getElementById('noteId').value;
       }
-      
+
       let message = '';
       if (lang === 'en') {
         message = `Hello Sigma Water, I am interested in becoming an official distributor.%0A%0A*Name:* ${name}%0A*Business/Company:* ${business}%0A*Region:* ${location}%0A*Requirement:* ${volume}%0A*Notes:* ${note}`;
       } else {
         message = `Halo Sigma Water, saya tertarik untuk menjadi distributor resmi.%0A%0A*Nama:* ${name}%0A*Toko/Bisnis:* ${business}%0A*Wilayah:* ${location}%0A*Kebutuhan:* ${volume}%0A*Catatan:* ${note}`;
       }
-      
+
       // WhatsApp Direct Link API
       const waUrl = `https://wa.me/6281584700009?text=${message}`;
       window.open(waUrl, '_blank');
     }
   </script>
 </body>
+
 </html>
