@@ -203,10 +203,12 @@ const checkoutCart = () => {
     const prod = products[item.id];
     if (!prod) return;
     const name = isEn ? prod.nameEn : prod.nameId;
+    const unit = isEn ? prod.unitEn : prod.unitId;
+    const unitPlural = (isEn && item.qty > 1 && unit === 'Box') ? 'es' : '';
     const itemTotal = prod.price * item.qty;
     total += itemTotal;
 
-    itemsList += `- ${item.qty}x ${name} (${formatRupiah(itemTotal)})%0A`;
+    itemsList += `- ${item.qty} ${unit}${unitPlural} ${name} (${formatRupiah(itemTotal)})%0A`;
   });
 
   let message = '';
