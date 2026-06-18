@@ -20,7 +20,7 @@ let cart = JSON.parse(localStorage.getItem('sigma_cart')) || [];
 const products = {
   cups: { id: 'cups', nameEn: '300ml Water Cups', nameId: 'Gelas Air 300ml', price: 35000, img: 'assets/bottle_300ml.png', unitEn: 'Box', unitId: 'Dus' },
   bottles_330: { id: 'bottles_330', nameEn: '330ml Mineral Water', nameId: 'Air Mineral 330ml', price: 40000, img: 'assets/bottle_330ml.png', unitEn: 'Box', unitId: 'Dus' },
-  sparkling_500: { id: 'sparkling_500', nameEn: '500ml Sparkling Water', nameId: 'Air Soda 500ml', price: 100000, img: 'assets/sparkling_500ml.png', unitEn: 'Box', unitId: 'Dus' },
+  alkali_500: { id: 'alkali_500', nameEn: '500ml Alkali Water', nameId: 'Air Alkali 500ml', price: 200000, img: 'assets/alkali_500ml.png', unitEn: 'Box', unitId: 'Dus' },
   bottles: { id: 'bottles', nameEn: '600ml Bottled Water', nameId: 'Air Botol 600ml', price: 55000, img: 'assets/bottle_600ml.png', unitEn: 'Box', unitId: 'Dus' },
   bottles_1500: { id: 'bottles_1500', nameEn: '1500ml Mineral Water', nameId: 'Air Mineral 1500ml', price: 130000, img: 'assets/bottle_1500ml.png', unitEn: 'Box', unitId: 'Dus' },
   gallon: { id: 'gallon', nameEn: '19L Sigma Gallon', nameId: 'Galon Sigma 19L', price: 65000, img: 'assets/gallon_19l.png', unitEn: 'Gallon', unitId: 'Galon' }

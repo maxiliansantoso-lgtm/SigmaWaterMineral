@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,6 +69,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <nav>
@@ -86,8 +88,10 @@
 
       <!-- Language Selector -->
       <span class="lang-selector" style="margin-left: 2rem;">
-        <button id="lang-btn-en" onclick="setLang('en')" class="btn btn-outline" style="padding: 0.2rem 0.6rem; font-size: 0.8rem; border-radius: 4px; cursor: pointer;">EN</button>
-        <button id="lang-btn-id" onclick="setLang('id')" class="btn btn-outline" style="padding: 0.2rem 0.6rem; font-size: 0.8rem; border-radius: 4px; cursor: pointer;">ID</button>
+        <button id="lang-btn-en" onclick="setLang('en')" class="btn btn-outline"
+          style="padding: 0.2rem 0.6rem; font-size: 0.8rem; border-radius: 4px; cursor: pointer;">EN</button>
+        <button id="lang-btn-id" onclick="setLang('id')" class="btn btn-outline"
+          style="padding: 0.2rem 0.6rem; font-size: 0.8rem; border-radius: 4px; cursor: pointer;">ID</button>
       </span>
     </div>
   </nav>
@@ -108,13 +112,14 @@
       <div class="glass-card product-detail-card fade-in">
         <img src="assets/bottle_300ml.png" alt="300ml Water Cups" class="product-img">
         <div>
-          <h3 class="lang-en">300ml Water Cups</h3>
-          <h3 class="lang-id">Gelas Air 300ml</h3>
+          <h3 class="lang-en">200ml Water Cups</h3>
+          <h3 class="lang-id">Gelas Air 200ml</h3>
           <p class="text-muted lang-en">Perfect for events, hospitality, and offices. Sold strictly by the box.</p>
-          <p class="text-muted lang-id">Sangat cocok untuk acara, perhotelan, dan perkantoran. Dijual eksklusif per dus.</p>
-          <div class="price-display" id="price-cups">Rp 35.000</div>
-          <p class="text-muted lang-en" style="font-size: 0.85rem;">24 cups per box</p>
-          <p class="text-muted lang-id" style="font-size: 0.85rem;">Isi 24 gelas per dus</p>
+          <p class="text-muted lang-id">Sangat cocok untuk acara, perhotelan, dan perkantoran. Dijual eksklusif per dus.
+          </p>
+          <div class="price-display" id="price-cups">Rp 25.000</div>
+          <p class="text-muted lang-en" style="font-size: 0.85rem;">36 cups per box</p>
+          <p class="text-muted lang-id" style="font-size: 0.85rem;">Isi 36 gelas per dus</p>
         </div>
 
         <div class="stepper">
@@ -123,8 +128,10 @@
           <button onclick="updateQty('cups', 1)">+</button>
         </div>
 
-        <button onclick="addToCartFromShop('cups')" class="btn btn-primary lang-en" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Add to Cart</button>
-        <button onclick="addToCartFromShop('cups')" class="btn btn-primary lang-id" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Tambah ke Keranjang</button>
+        <button onclick="addToCartFromShop('cups')" class="btn btn-primary lang-en"
+          style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Add to Cart</button>
+        <button onclick="addToCartFromShop('cups')" class="btn btn-primary lang-id"
+          style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Tambah ke Keranjang</button>
       </div>
 
       <!-- 330ml Water -->
@@ -135,7 +142,7 @@
           <h3 class="lang-id">Air Mineral 330ml</h3>
           <p class="text-muted lang-en">Compact and clean design. Sold strictly by the box.</p>
           <p class="text-muted lang-id">Desain ringkas dan bersih. Dijual eksklusif per dus.</p>
-          <div class="price-display" id="price-bottles_330">Rp 40.000</div>
+          <div class="price-display" id="price-bottles_330">Rp 35.000</div>
           <p class="text-muted lang-en" style="font-size: 0.85rem;">24 bottles per box</p>
           <p class="text-muted lang-id" style="font-size: 0.85rem;">Isi 24 botol per dus</p>
         </div>
@@ -146,31 +153,35 @@
           <button onclick="updateQty('bottles_330', 1)">+</button>
         </div>
 
-        <button onclick="addToCartFromShop('bottles_330')" class="btn btn-primary lang-en" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Add to Cart</button>
-        <button onclick="addToCartFromShop('bottles_330')" class="btn btn-primary lang-id" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Tambah ke Keranjang</button>
+        <button onclick="addToCartFromShop('bottles_330')" class="btn btn-primary lang-en"
+          style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Add to Cart</button>
+        <button onclick="addToCartFromShop('bottles_330')" class="btn btn-primary lang-id"
+          style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Tambah ke Keranjang</button>
       </div>
 
-      <!-- 500ml Sparkling Water -->
+      <!-- 500ml Alkali Water -->
       <div class="glass-card product-detail-card fade-in" style="transition-delay: 0.1s;">
-        <img src="assets/sparkling_500ml.png" alt="500ml Sparkling Water" class="product-img">
+        <img src="assets/alkali_500ml.png" alt="500ml Alkali Water" class="product-img">
         <div>
-          <h3 class="lang-en">500ml Sparkling Water</h3>
-          <h3 class="lang-id">Air Soda 500ml</h3>
-          <p class="text-muted lang-en">Premium carbonated refreshment. Sold strictly by the box.</p>
-          <p class="text-muted lang-id">Kesegaran karbonasi premium. Dijual eksklusif per dus.</p>
-          <div class="price-display" id="price-sparkling_500">Rp 100.000</div>
+          <h3 class="lang-en">500ml Alkali Water</h3>
+          <h3 class="lang-id">Air Alkali 500ml</h3>
+          <p class="text-muted lang-en">Premium ionized hydration. Sold strictly by the box.</p>
+          <p class="text-muted lang-id">Hidrasi terionisasi premium. Dijual eksklusif per dus.</p>
+          <div class="price-display" id="price-alkali_500">Rp 200.000</div>
           <p class="text-muted lang-en" style="font-size: 0.85rem;">24 bottles per box</p>
           <p class="text-muted lang-id" style="font-size: 0.85rem;">Isi 24 botol per dus</p>
         </div>
 
         <div class="stepper">
-          <button onclick="updateQty('sparkling_500', -1)">-</button>
-          <span id="qty-sparkling_500">1 Box</span>
-          <button onclick="updateQty('sparkling_500', 1)">+</button>
+          <button onclick="updateQty('alkali_500', -1)">-</button>
+          <span id="qty-alkali_500">1 Box</span>
+          <button onclick="updateQty('alkali_500', 1)">+</button>
         </div>
 
-        <button onclick="addToCartFromShop('sparkling_500')" class="btn btn-primary lang-en" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Add to Cart</button>
-        <button onclick="addToCartFromShop('sparkling_500')" class="btn btn-primary lang-id" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Tambah ke Keranjang</button>
+        <button onclick="addToCartFromShop('alkali_500')" class="btn btn-primary lang-en"
+          style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Add to Cart</button>
+        <button onclick="addToCartFromShop('alkali_500')" class="btn btn-primary lang-id"
+          style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Tambah ke Keranjang</button>
       </div>
 
       <!-- 600ml Bottles -->
@@ -181,7 +192,7 @@
           <h3 class="lang-id">Air Botol 600ml</h3>
           <p class="text-muted lang-en">Everyday premium hydration. Sold strictly by the box.</p>
           <p class="text-muted lang-id">Hidrasi premium harian Anda. Dijual eksklusif per dus.</p>
-          <div class="price-display" id="price-bottles">Rp 55.000</div>
+          <div class="price-display" id="price-bottles">Rp 45.000</div>
           <p class="text-muted lang-en" style="font-size: 0.85rem;">24 bottles per box</p>
           <p class="text-muted lang-id" style="font-size: 0.85rem;">Isi 24 botol per dus</p>
         </div>
@@ -192,8 +203,10 @@
           <button onclick="updateQty('bottles', 1)">+</button>
         </div>
 
-        <button onclick="addToCartFromShop('bottles')" class="btn btn-primary lang-en" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Add to Cart</button>
-        <button onclick="addToCartFromShop('bottles')" class="btn btn-primary lang-id" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Tambah ke Keranjang</button>
+        <button onclick="addToCartFromShop('bottles')" class="btn btn-primary lang-en"
+          style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Add to Cart</button>
+        <button onclick="addToCartFromShop('bottles')" class="btn btn-primary lang-id"
+          style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Tambah ke Keranjang</button>
       </div>
 
       <!-- 1500ml Water -->
@@ -204,9 +217,9 @@
           <h3 class="lang-id">Air Mineral 1500ml</h3>
           <p class="text-muted lang-en">Large size for family or office. Sold strictly by the box.</p>
           <p class="text-muted lang-id">Ukuran besar untuk keluarga atau kantor. Dijual eksklusif per dus.</p>
-          <div class="price-display" id="price-bottles_1500">Rp 130.000</div>
-          <p class="text-muted lang-en" style="font-size: 0.85rem;">24 bottles per box</p>
-          <p class="text-muted lang-id" style="font-size: 0.85rem;">Isi 24 botol per dus</p>
+          <div class="price-display" id="price-bottles_1500">Rp 50.000</div>
+          <p class="text-muted lang-en" style="font-size: 0.85rem;">12 bottles per box</p>
+          <p class="text-muted lang-id" style="font-size: 0.85rem;">Isi 12 botol per dus</p>
         </div>
 
         <div class="stepper">
@@ -215,8 +228,10 @@
           <button onclick="updateQty('bottles_1500', 1)">+</button>
         </div>
 
-        <button onclick="addToCartFromShop('bottles_1500')" class="btn btn-primary lang-en" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Add to Cart</button>
-        <button onclick="addToCartFromShop('bottles_1500')" class="btn btn-primary lang-id" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Tambah ke Keranjang</button>
+        <button onclick="addToCartFromShop('bottles_1500')" class="btn btn-primary lang-en"
+          style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Add to Cart</button>
+        <button onclick="addToCartFromShop('bottles_1500')" class="btn btn-primary lang-id"
+          style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Tambah ke Keranjang</button>
       </div>
 
       <!-- 19L Gallon -->
@@ -227,7 +242,7 @@
           <h3 class="lang-id">Galon Sigma 19L</h3>
           <p class="text-muted lang-en">For home and office dispensers. Local delivery only.</p>
           <p class="text-muted lang-id">Untuk dispenser rumah dan kantor. Hanya pengiriman lokal.</p>
-          <div class="price-display" id="price-gallon">Rp 65.000</div>
+          <div class="price-display" id="price-gallon">Rp 35.000</div>
           <p class="text-muted lang-en" style="font-size: 0.85rem;">1 per purchase</p>
           <p class="text-muted lang-id" style="font-size: 0.85rem;">1 unit per pemesanan</p>
         </div>
@@ -238,8 +253,10 @@
           <button onclick="updateQty('gallon', 1)">+</button>
         </div>
 
-        <button onclick="addToCartFromShop('gallon')" class="btn btn-primary lang-en" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Add to Cart</button>
-        <button onclick="addToCartFromShop('gallon')" class="btn btn-primary lang-id" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Tambah ke Keranjang</button>
+        <button onclick="addToCartFromShop('gallon')" class="btn btn-primary lang-en"
+          style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Add to Cart</button>
+        <button onclick="addToCartFromShop('gallon')" class="btn btn-primary lang-id"
+          style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Tambah ke Keranjang</button>
       </div>
 
     </div>
@@ -250,8 +267,10 @@
       <div class="footer-content">
         <div class="footer-col">
           <div class="nav-brand mb-1">Σ SIGMA WATER</div>
-          <p class="text-muted lang-en">Pure mineral water from the deep aquifers of Central Sulawesi, Indonesia. Established in 2016.</p>
-          <p class="text-muted lang-id">Air mineral murni dari akuifer dalam Sulawesi Tengah, Indonesia. Didirikan sejak 2016.</p>
+          <p class="text-muted lang-en">Pure mineral water from the deep aquifers of Central Sulawesi, Indonesia.
+            Established in 2016.</p>
+          <p class="text-muted lang-id">Air mineral murni dari akuifer dalam Sulawesi Tengah, Indonesia. Didirikan sejak
+            2016.</p>
         </div>
         <div class="footer-col">
           <h4 class="lang-en">Fulfillment Shop</h4>
@@ -260,8 +279,8 @@
           <a href="shop.html" class="lang-id">Gelas 300ml</a>
           <a href="shop.html" class="lang-en">330ml Bottles</a>
           <a href="shop.html" class="lang-id">Botol 330ml</a>
-          <a href="shop.html" class="lang-en">500ml Sparkling</a>
-          <a href="shop.html" class="lang-id">Soda 500ml</a>
+          <a href="shop.html" class="lang-en">500ml Alkali</a>
+          <a href="shop.html" class="lang-id">Alkali 500ml</a>
           <a href="shop.html" class="lang-en">600ml Bottles</a>
           <a href="shop.html" class="lang-id">Botol 600ml</a>
           <a href="shop.html" class="lang-en">1500ml Bottles</a>
@@ -285,7 +304,8 @@
           <h4 class="lang-en">Contact Us</h4>
           <h4 class="lang-id">Hubungi Kami</h4>
           <p class="text-muted mb-1">WhatsApp Support:</p>
-          <a href="https://wa.me/6281584700009" target="_blank" style="color: var(--accent-blue); font-weight: 600;">081584700009</a>
+          <a href="https://wa.me/6281584700009" target="_blank"
+            style="color: var(--accent-blue); font-weight: 600;">081584700009</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -300,7 +320,7 @@
     const state = {
       cups: { qty: 1, basePrice: 35000, label: 'Box' },
       bottles_330: { qty: 1, basePrice: 40000, label: 'Box' },
-      sparkling_500: { qty: 1, basePrice: 100000, label: 'Box' },
+      alkali_500: { qty: 1, basePrice: 200000, label: 'Box' },
       bottles: { qty: 1, basePrice: 55000, label: 'Box' },
       bottles_1500: { qty: 1, basePrice: 130000, label: 'Box' },
       gallon: { qty: 1, basePrice: 65000, label: 'Gallon' }
@@ -350,4 +370,5 @@
     });
   </script>
 </body>
+
 </html>
