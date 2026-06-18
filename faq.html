@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ | Sigma Water</title>
+  <link rel="stylesheet" href="index.css">
+  <style>
+    .page-header {
+      padding: 8rem 5% 4rem;
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-color) 100%);
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .faq-item {
+      cursor: pointer;
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, margin-top 0.3s ease-out;
+      color: var(--text-muted);
+      margin-top: 0;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px; /* arbitrary height that is larger than content */
+      margin-top: 1rem;
+    }
+
+    .faq-icon {
+      transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-brand">Σ SIGMA WATER</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="story.html">Our Story</a>
+      <a href="faq.html" class="active">FAQ</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container fade-in">
+      <h1>Pertanyaan Umum (FAQ)</h1>
+      <p class="text-muted">Temukan jawaban untuk pertanyaan yang sering diajukan mengenai Sigma Water.</p>
+    </div>
+  </header>
+
+  <section class="section-padding" style="padding-top: 0;">
+    <div class="container">
+      <div class="faq-container">
+        
+        <div class="glass-card faq-item fade-in" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Bagaimana cara memesan Sigma Water?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Semua pemesanan dapat dilakukan secara mudah melalui WhatsApp di nomor 081584700009 atau dengan mengklik tombol "Order via WhatsApp" pada halaman Shop kami.</p>
+          </div>
+        </div>
+
+        <div class="glass-card faq-item fade-in" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Berapa lama waktu pengiriman?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Untuk wilayah lokal Sulawesi Tengah, kami menyediakan pengiriman instan atau hari yang sama (sameday). Untuk wilayah luar kota, waktu pengiriman akan disesuaikan dengan layanan ekspedisi pilihan Anda.</p>
+          </div>
+        </div>
+
+        <div class="glass-card faq-item fade-in" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Apakah ada jumlah minimal pemesanan?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Produk Gelas (300ml) dan Botol (600ml) dijual per dus (isi 24 gelas/botol). Sedangkan untuk Galon 19L dapat dibeli secara satuan tanpa minimal pemesanan.</p>
+          </div>
+        </div>
+
+        <div class="glass-card faq-item fade-in" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Dari mana sumber air Sigma Water?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Air kami bersumber dari akuifer alami Sulawesi Tengah yang terlindungi di bawah lapisan batuan vulkanik kuno, menghasilkan air murni dengan kandungan mineral seimbang dan pH yang ideal.</p>
+          </div>
+        </div>
+
+        <div class="glass-card faq-item fade-in" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Bagaimana cara penukaran galon kosong?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Anda dapat menukarkan galon kosong merek Sigma Anda saat pengantaran galon baru. Cukup informasikan kepada admin WhatsApp kami saat melakukan pemesanan.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-col">
+          <div class="nav-brand mb-1">Σ SIGMA WATER</div>
+          <p class="text-muted">Pure mineral water from the deep aquifers of Central Sulawesi, Indonesia. Established in 2016.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Fulfillment Shop</h4>
+          <a href="shop.html">300ml Cups</a>
+          <a href="shop.html">600ml Bottles</a>
+          <a href="shop.html">19L Gallons</a>
+        </div>
+        <div class="footer-col">
+          <h4>Corporate</h4>
+          <a href="story.html">Our Story</a>
+          <a href="story.html#sustainability">Sustainability</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <p class="text-muted mb-1">WhatsApp Support:</p>
+          <a href="https://wa.me/6281584700009" target="_blank" style="color: var(--accent-blue); font-weight: 600;">081584700009</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Sigma Water. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    function toggleFaq(element) {
+      const activeItems = document.querySelectorAll('.faq-item.active');
+      activeItems.forEach(item => {
+        if (item !== element) {
+          item.classList.remove('active');
+        }
+      });
+      element.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
