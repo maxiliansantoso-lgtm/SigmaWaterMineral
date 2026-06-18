@@ -326,6 +326,13 @@ document.addEventListener('DOMContentLoaded', () => {
     .cart-item-remove:hover {
       color: #ef4444;
     }
+    #cart-items::-webkit-scrollbar {
+      display: none;
+    }
+    #cart-items {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
     .toast-notification {
       position: fixed;
       top: 90px;
