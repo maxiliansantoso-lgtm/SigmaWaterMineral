@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,7 +78,8 @@
       border: 1px solid var(--border-color);
     }
 
-    .radio-label, .checkbox-label {
+    .radio-label,
+    .checkbox-label {
       display: flex;
       align-items: center;
       gap: 0.8rem;
@@ -112,7 +114,10 @@
     .slider {
       position: absolute;
       cursor: pointer;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background-color: var(--border-color);
       transition: .4s;
       border-radius: 34px;
@@ -130,11 +135,11 @@
       border-radius: 50%;
     }
 
-    input:checked + .slider {
+    input:checked+.slider {
       background-color: var(--accent-blue);
     }
 
-    input:checked + .slider:before {
+    input:checked+.slider:before {
       transform: translateX(26px);
     }
 
@@ -146,7 +151,7 @@
       color: white;
       padding: 1rem 2rem;
       border-radius: var(--border-radius);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
       transform: translateY(150%);
       transition: transform 0.3s;
       z-index: 1000;
@@ -155,9 +160,9 @@
     .cart-notification.show {
       transform: translateY(0);
     }
-
   </style>
 </head>
+
 <body>
 
   <nav>
@@ -166,7 +171,6 @@
       <a href="index.html">Home</a>
       <a href="shop.html" class="active">Shop</a>
       <a href="story.html">Our Story</a>
-      <a href="#" id="cart-toggle" onclick="event.preventDefault(); toggleCart();">🛒 Cart (<span id="cart-count">0</span>)</a>
     </div>
   </nav>
 
@@ -179,7 +183,7 @@
 
   <section class="section-padding" style="padding-top: 0;">
     <div class="container grid-3">
-      
+
       <!-- 300ml Cups -->
       <div class="glass-card product-detail-card fade-in">
         <img src="assets/bottle_300ml.png" alt="300ml Water Cups" class="product-img">
@@ -187,16 +191,16 @@
           <h3>300ml Water Cups</h3>
           <p class="text-muted">Perfect for events, hospitality, and offices. Sold strictly by the box.</p>
           <div class="price-display" id="price-cups">Rp 35.000</div>
-          <p class="text-muted" style="font-size: 0.85rem;">~Rp 1.458 / cup</p>
+          <p class="text-muted" style="font-size: 0.85rem;">24 cups per box</p>
         </div>
-        
+
         <div class="stepper">
           <button onclick="updateQty('cups', -1)">-</button>
           <span id="qty-cups">1 Box</span>
           <button onclick="updateQty('cups', 1)">+</button>
         </div>
-        
-        <button class="btn btn-primary" onclick="addToCart('300ml Water Cups', 'cups')">Add to Cart</button>
+
+        <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary" style="text-align: center;">Order via WhatsApp</a>
       </div>
 
       <!-- 600ml Bottles -->
@@ -206,16 +210,16 @@
           <h3>600ml Bottled Water</h3>
           <p class="text-muted">Everyday premium hydration. Sold strictly by the box.</p>
           <div class="price-display" id="price-bottles">Rp 55.000</div>
-          <p class="text-muted" style="font-size: 0.85rem;">~Rp 2.291 / bottle</p>
+          <p class="text-muted" style="font-size: 0.85rem;">24 bottles per box</p>
         </div>
-        
+
         <div class="stepper">
           <button onclick="updateQty('bottles', -1)">-</button>
           <span id="qty-bottles">1 Box</span>
           <button onclick="updateQty('bottles', 1)">+</button>
         </div>
-        
-        <button class="btn btn-primary" onclick="addToCart('600ml Bottled Water', 'bottles')">Add to Cart</button>
+
+        <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary" style="text-align: center;">Order via WhatsApp</a>
       </div>
 
       <!-- 19L Gallon -->
@@ -225,22 +229,22 @@
           <h3>19L Sigma Gallon</h3>
           <p class="text-muted">For home and office dispensers. Local delivery only.</p>
           <div class="price-display" id="price-gallon">Rp 65.000</div>
-          <p class="text-muted" style="font-size: 0.85rem;">~Rp 65.000 / gallon</p>
+          <p class="text-muted" style="font-size: 0.85rem;">1 per purchase</p>
         </div>
-        
+
         <div class="stepper">
           <button onclick="updateQty('gallon', -1)">-</button>
           <span id="qty-gallon">1 Gallon</span>
           <button onclick="updateQty('gallon', 1)">+</button>
         </div>
-        
-        <button class="btn btn-primary" onclick="addToCart('19L Sigma Gallon', 'gallon')">Add to Cart</button>
+
+        <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary" style="text-align: center;">Order via WhatsApp</a>
       </div>
 
     </div>
   </section>
 
-  <div class="cart-notification" id="cart-notif">Item added to cart!</div>
+
 
   <script src="script.js"></script>
   <script>
@@ -255,15 +259,12 @@
       const newQty = state[item].qty + change;
       if (newQty < 1) return;
       state[item].qty = newQty;
-      
+
       const label = state[item].label;
       document.getElementById(`qty-${item}`).innerText = `${newQty} ${label}${newQty > 1 && label === 'Box' ? 'es' : (newQty > 1 ? 's' : '')}`;
       document.getElementById(`price-${item}`).innerText = formatRupiah(state[item].qty * state[item].basePrice);
     }
-
-    function addToCart(name, item) {
-      addToCartGlobal(item, name, state[item].qty, state[item].basePrice);
-    }
   </script>
 </body>
+
 </html>
