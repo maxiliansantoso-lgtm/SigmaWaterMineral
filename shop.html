@@ -123,8 +123,8 @@
           <button onclick="updateQty('cups', 1)">+</button>
         </div>
 
-        <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary lang-en" style="text-align: center;">Order via WhatsApp</a>
-        <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary lang-id" style="text-align: center;">Pesan via WhatsApp</a>
+        <button onclick="addToCartFromShop('cups')" class="btn btn-primary lang-en" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Add to Cart</button>
+        <button onclick="addToCartFromShop('cups')" class="btn btn-primary lang-id" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Tambah ke Keranjang</button>
       </div>
 
       <!-- 330ml Water -->
@@ -146,8 +146,8 @@
           <button onclick="updateQty('bottles_330', 1)">+</button>
         </div>
 
-        <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary lang-en" style="text-align: center;">Order via WhatsApp</a>
-        <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary lang-id" style="text-align: center;">Pesan via WhatsApp</a>
+        <button onclick="addToCartFromShop('bottles_330')" class="btn btn-primary lang-en" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Add to Cart</button>
+        <button onclick="addToCartFromShop('bottles_330')" class="btn btn-primary lang-id" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Tambah ke Keranjang</button>
       </div>
 
       <!-- 500ml Sparkling Water -->
@@ -169,8 +169,8 @@
           <button onclick="updateQty('sparkling_500', 1)">+</button>
         </div>
 
-        <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary lang-en" style="text-align: center;">Order via WhatsApp</a>
-        <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary lang-id" style="text-align: center;">Pesan via WhatsApp</a>
+        <button onclick="addToCartFromShop('sparkling_500')" class="btn btn-primary lang-en" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Add to Cart</button>
+        <button onclick="addToCartFromShop('sparkling_500')" class="btn btn-primary lang-id" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Tambah ke Keranjang</button>
       </div>
 
       <!-- 600ml Bottles -->
@@ -192,8 +192,8 @@
           <button onclick="updateQty('bottles', 1)">+</button>
         </div>
 
-        <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary lang-en" style="text-align: center;">Order via WhatsApp</a>
-        <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary lang-id" style="text-align: center;">Pesan via WhatsApp</a>
+        <button onclick="addToCartFromShop('bottles')" class="btn btn-primary lang-en" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Add to Cart</button>
+        <button onclick="addToCartFromShop('bottles')" class="btn btn-primary lang-id" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Tambah ke Keranjang</button>
       </div>
 
       <!-- 1500ml Water -->
@@ -215,8 +215,8 @@
           <button onclick="updateQty('bottles_1500', 1)">+</button>
         </div>
 
-        <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary lang-en" style="text-align: center;">Order via WhatsApp</a>
-        <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary lang-id" style="text-align: center;">Pesan via WhatsApp</a>
+        <button onclick="addToCartFromShop('bottles_1500')" class="btn btn-primary lang-en" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Add to Cart</button>
+        <button onclick="addToCartFromShop('bottles_1500')" class="btn btn-primary lang-id" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Tambah ke Keranjang</button>
       </div>
 
       <!-- 19L Gallon -->
@@ -238,8 +238,8 @@
           <button onclick="updateQty('gallon', 1)">+</button>
         </div>
 
-        <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary lang-en" style="text-align: center;">Order via WhatsApp</a>
-        <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary lang-id" style="text-align: center;">Pesan via WhatsApp</a>
+        <button onclick="addToCartFromShop('gallon')" class="btn btn-primary lang-en" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Add to Cart</button>
+        <button onclick="addToCartFromShop('gallon')" class="btn btn-primary lang-id" style="width: 100%; text-align: center; border-radius: 30px; cursor: pointer;">Tambah ke Keranjang</button>
       </div>
 
     </div>
@@ -332,6 +332,11 @@
 
       updateQtyLabel(item);
       document.getElementById(`price-${item}`).innerText = formatRupiah(state[item].qty * state[item].basePrice);
+    }
+
+    function addToCartFromShop(itemKey) {
+      const qty = state[itemKey].qty;
+      addToCart(itemKey, qty);
     }
 
     // Initialize labels
