@@ -39,6 +39,48 @@ const updateCartBadge = () => {
   badge.style.display = count > 0 ? 'flex' : 'none';
 };
 
+const showNotification = (productId, qty) => {
+  const prod = products[productId];
+  if (!prod) return;
+  const isEn = document.documentElement.getAttribute('lang') === 'en';
+  const name = isEn ? prod.nameEn : prod.nameId;
+  
+  // Remove any existing toast notifications
+  document.querySelectorAll('.toast-notification').forEach(t => t.remove());
+
+  // Create notification element
+  const toast = document.createElement('div');
+  toast.className = 'toast-notification';
+  
+  const title = isEn ? 'Added to Cart' : 'Berhasil Ditambahkan';
+  const desc = `${qty}x ${name}`;
+  
+  toast.innerHTML = `
+    <div style="background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <div style="flex: 1;">
+      <div style="font-weight: 700; font-size: 0.9rem; color: var(--text-main);">${title}</div>
+      <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.1rem;">${desc}</div>
+    </div>
+  `;
+  
+  document.body.appendChild(toast);
+  
+  // Trigger transition
+  setTimeout(() => {
+    toast.classList.add('show');
+  }, 50);
+  
+  // Hide and remove after 3 seconds
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => {
+      toast.remove();
+    }, 400);
+  }, 3000);
+};
+
 const addToCart = (productId, qty = 1) => {
   const existing = cart.find(item => item.id === productId);
   if (existing) {
@@ -48,11 +90,17 @@ const addToCart = (productId, qty = 1) => {
   }
   saveCart();
   renderCart();
-  openCart();
+  showNotification(productId, qty);
 };
 
 const removeFromCart = (productId) => {
   cart = cart.filter(item => item.id !== productId);
+  saveCart();
+  renderCart();
+};
+
+const clearCart = () => {
+  cart = [];
   saveCart();
   renderCart();
 };
@@ -90,11 +138,16 @@ const closeCart = () => {
 const renderCart = () => {
   const container = document.getElementById('cart-items');
   const totalEl = document.getElementById('cart-total');
+  const clearBtn = document.getElementById('clear-cart-btn');
   if (!container || !totalEl) return;
 
   container.innerHTML = '';
   let total = 0;
   const isEn = document.documentElement.getAttribute('lang') === 'en';
+
+  if (clearBtn) {
+    clearBtn.style.display = cart.length > 0 ? 'inline-block' : 'none';
+  }
 
   if (cart.length === 0) {
     container.innerHTML = `
@@ -150,8 +203,6 @@ const checkoutCart = () => {
     const prod = products[item.id];
     if (!prod) return;
     const name = isEn ? prod.nameEn : prod.nameId;
-    const unit = isEn ? prod.unitEn : prod.unitId;
-    const unitPlural = (isEn && item.qty > 1 && unit === 'Box') ? 'es' : '';
     const itemTotal = prod.price * item.qty;
     total += itemTotal;
 
@@ -175,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedLang = localStorage.getItem('sigma_lang') || 'id'; // default to id (Indonesian)
   setLang(savedLang);
 
-  // Inject CSS Styles for Cart Drawer
+  // Inject CSS Styles for Cart Drawer & Toast & Nav Actions
   const style = document.createElement('style');
   style.textContent = `
     #cart-drawer {
@@ -275,10 +326,30 @@ document.addEventListener('DOMContentLoaded', () => {
     .cart-item-remove:hover {
       color: #ef4444;
     }
+    .toast-notification {
+      position: fixed;
+      top: 90px;
+      right: -320px;
+      width: 300px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: var(--border-radius);
+      padding: 1rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      z-index: 11000;
+      transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .toast-notification.show {
+      right: 20px !important;
+      opacity: 1 !important;
+    }
     @media (max-width: 768px) {
-      .nav-links a { display: none; }
-      .nav-links { display: flex !important; align-items: center; }
-      .lang-selector { margin-left: 0.5rem !important; }
+      .nav-links { display: none !important; }
       #cart-drawer { max-width: 320px; }
     }
   `;
@@ -289,8 +360,14 @@ document.addEventListener('DOMContentLoaded', () => {
   drawer.id = 'cart-drawer';
   drawer.innerHTML = `
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
-      <h3 class="lang-en" style="font-size: 1.4rem;">Your Cart</h3>
-      <h3 class="lang-id" style="font-size: 1.4rem;">Keranjang Anda</h3>
+      <div style="display: flex; align-items: center; gap: 0.8rem;">
+        <h3 class="lang-en" style="font-size: 1.4rem;">Your Cart</h3>
+        <h3 class="lang-id" style="font-size: 1.4rem;">Keranjang Anda</h3>
+        <button id="clear-cart-btn" style="background: transparent; border: none; color: #ef4444; font-size: 0.85rem; font-weight: 600; cursor: pointer; padding: 0.2rem 0.5rem; border-radius: 4px;">
+          <span class="lang-en">Clear All</span>
+          <span class="lang-id">Hapus Semua</span>
+        </button>
+      </div>
       <button id="close-cart" style="background: transparent; border: none; color: var(--text-main); font-size: 1.8rem; cursor: pointer; line-height: 1;">&times;</button>
     </div>
     
@@ -316,26 +393,41 @@ document.addEventListener('DOMContentLoaded', () => {
   overlay.id = 'cart-overlay';
   document.body.appendChild(overlay);
 
-  // Dynamically append Cart Button to Nav Links
-  const navLinks = document.querySelector('.nav-links');
-  if (navLinks) {
+  // Set up Nav Actions (moved language selector and dynamically added cart button to the far right of the header)
+  const nav = document.querySelector('nav');
+  if (nav) {
+    const navActions = document.createElement('div');
+    navActions.className = 'nav-actions';
+    navActions.style = 'display: flex; align-items: center; gap: 1rem; margin-left: 1.5rem;';
+
+    // Move the language selector if it exists
+    const langSelector = document.querySelector('.lang-selector');
+    if (langSelector) {
+      navActions.appendChild(langSelector);
+      langSelector.style.marginLeft = '0';
+    }
+
+    // Create and append the cart button
     const cartBtn = document.createElement('button');
     cartBtn.id = 'cart-btn';
     cartBtn.className = 'btn btn-outline';
-    cartBtn.style = 'position: relative; padding: 0.5rem; display: flex; align-items: center; justify-content: center; border-radius: 50%; width: 40px; height: 40px; margin-left: 2rem; border: 1px solid var(--border-color); background: transparent; color: var(--text-main); cursor: pointer;';
+    cartBtn.style = 'position: relative; padding: 0.5rem; display: flex; align-items: center; justify-content: center; border-radius: 50%; width: 40px; height: 40px; border: 1px solid var(--border-color); background: transparent; color: var(--text-main); cursor: pointer;';
     cartBtn.innerHTML = `
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
       <span id="cart-badge" style="position: absolute; top: -5px; right: -5px; background: var(--accent-blue); color: #fff; border-radius: 50%; width: 18px; height: 18px; font-size: 0.7rem; font-weight: bold; display: flex; align-items: center; justify-content: center; display: none;">0</span>
     `;
-    navLinks.appendChild(cartBtn);
+    navActions.appendChild(cartBtn);
 
-    // Event Listeners for Cart Interaction
+    nav.appendChild(navActions);
+
+    // Event Listener to open cart
     cartBtn.addEventListener('click', openCart);
   }
 
   document.getElementById('close-cart').addEventListener('click', closeCart);
   overlay.addEventListener('click', closeCart);
   document.getElementById('checkout-btn').addEventListener('click', checkoutCart);
+  document.getElementById('clear-cart-btn').addEventListener('click', clearCart);
 
   // Listen to language changes to re-render the cart names/units
   window.addEventListener('langChanged', renderCart);
