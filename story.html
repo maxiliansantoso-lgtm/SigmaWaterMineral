@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story | Sigma Water</title>
+  <link rel="stylesheet" href="index.css">
+  <style>
+    .story-hero {
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background: url('assets/hero_background.png') no-repeat center 30%/cover;
+    }
+    
+    .story-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(11, 15, 25, 0.7);
+    }
+
+    .story-hero-content {
+      position: relative;
+      z-index: 10;
+    }
+
+    .content-block {
+      max-width: 800px;
+      margin: 0 auto 4rem;
+      text-align: center;
+    }
+
+    .sigma-symbol {
+      font-size: 5rem;
+      color: var(--accent-blue);
+      margin-bottom: 1rem;
+      font-family: serif;
+      line-height: 1;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0; left: 50%;
+      width: 2px;
+      background: var(--accent-blue);
+      transform: translateX(-50%);
+      opacity: 0.3;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      width: 50%;
+      padding: 0 2rem;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      text-align: left;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: var(--accent-blue);
+      border-radius: 50%;
+      top: 0;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot {
+      right: -10px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+      left: -10px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-brand">Σ SIGMA WATER</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="story.html" class="active">Our Story</a>
+    </div>
+  </nav>
+
+  <header class="story-hero fade-in">
+    <div class="container story-hero-content">
+      <h1>Born in Central Sulawesi.</h1>
+      <h2>Perfected by Nature.</h2>
+    </div>
+  </header>
+
+  <section class="section-padding">
+    <div class="container">
+      
+      <div class="content-block fade-in">
+        <div class="sigma-symbol">∑</div>
+        <h2>The Philosophy of Sigma</h2>
+        <p class="text-muted" style="font-size: 1.2rem; line-height: 1.8;">
+          Why Sigma? The symbol <strong>∑</strong> represents the "perfect sum" in mathematics. For us, it represents the exact mathematical precision of nature's finest minerals, our pristine geographical source, and cutting-edge hydration technology coming together in perfect harmony.
+        </p>
+      </div>
+
+      <div class="content-block fade-in">
+        <h2>Our Heritage</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <h3>2016</h3>
+            <p class="text-muted">Discovery of the virgin aquifers beneath the ancient volcanic layers of Central Sulawesi.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <h3>2018</h3>
+            <p class="text-muted">Establishment of our state-of-the-art filtration facility, ensuring zero contamination.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <h3>Today</h3>
+            <p class="text-muted">Delivering the perfect sum of hydration to homes, offices, and events across the region.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block glass-card fade-in" style="margin-top: 4rem;">
+        <h2>Commitment to the Source</h2>
+        <p class="text-muted">
+          We believe in taking only what nature can replenish. Our environmental preservation efforts ensure that the ancient volcanic layers and deep aquifers of Central Sulawesi remain untouched, pure, and sustainable for generations to come. Every drop of Sigma Water is a testament to our respect for this pristine ecosystem.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container text-center">
+      <div class="nav-brand mb-1">Σ SIGMA</div>
+      <p class="text-muted mb-2">Central Sulawesi, Indonesia. Est. 2016</p>
+      <a href="shop.html" class="btn btn-outline">Shop Now</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | Sigma Water</title>
+  <link rel="stylesheet" href="index.css">
+  <style>
+    .page-header {
+      padding: 8rem 5% 4rem;
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-color) 100%);
+    }
+
+    .product-detail-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .product-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: var(--border-radius);
+      background: #000;
+    }
+
+    .price-display {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent-blue);
+      margin: 0.5rem 0;
+    }
+
+    .stepper {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 30px;
+      padding: 0.5rem;
+      width: fit-content;
+      border: 1px solid var(--border-color);
+    }
+
+    .stepper button {
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      font-size: 1.2rem;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      transition: background 0.2s;
+    }
+
+    .stepper button:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .stepper span {
+      font-weight: 600;
+      min-width: 60px;
+      text-align: center;
+    }
+
+    .option-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin: 1rem 0;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--border-color);
+    }
+
+    .radio-label, .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1rem 0;
+      padding: 1rem;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid var(--accent-blue);
+      border-radius: var(--border-radius);
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: var(--border-color);
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--accent-blue);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .cart-notification {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent-blue);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      transform: translateY(150%);
+      transition: transform 0.3s;
+      z-index: 1000;
+    }
+
+    .cart-notification.show {
+      transform: translateY(0);
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-brand">Σ SIGMA WATER</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="story.html">Our Story</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container fade-in">
+      <h1>Premium Hydration Shop</h1>
+      <p class="text-muted">Direct delivery from Central Sulawesi to your door.</p>
+    </div>
+  </header>
+
+  <section class="section-padding" style="padding-top: 0;">
+    <div class="container grid-3">
+      
+      <!-- 300ml Cups -->
+      <div class="glass-card product-detail-card fade-in">
+        <img src="assets/bottle_300ml.png" alt="300ml Water Cups" class="product-img">
+        <div>
+          <h3>300ml Water Cups</h3>
+          <p class="text-muted">Perfect for events, hospitality, and offices. Sold strictly by the box.</p>
+          <div class="price-display" id="price-cups">Rp 35.000</div>
+          <p class="text-muted" style="font-size: 0.85rem;">~Rp 1.458 / cup</p>
+        </div>
+        
+        <div class="stepper">
+          <button onclick="updateQty('cups', -1)">-</button>
+          <span id="qty-cups">1 Box</span>
+          <button onclick="updateQty('cups', 1)">+</button>
+        </div>
+        
+        <button class="btn btn-primary" onclick="addToCart('300ml Water Cups', 'cups')">Add to Cart</button>
+      </div>
+
+      <!-- 600ml Bottles -->
+      <div class="glass-card product-detail-card fade-in" style="transition-delay: 0.1s;">
+        <img src="assets/bottle_600ml.png" alt="600ml Bottled Water" class="product-img">
+        <div>
+          <h3>600ml Bottled Water</h3>
+          <p class="text-muted">Everyday premium hydration. Sold strictly by the box.</p>
+          <div class="price-display" id="price-bottles">Rp 55.000</div>
+          <p class="text-muted" style="font-size: 0.85rem;">~Rp 2.291 / bottle</p>
+        </div>
+        
+        <div class="stepper">
+          <button onclick="updateQty('bottles', -1)">-</button>
+          <span id="qty-bottles">1 Box</span>
+          <button onclick="updateQty('bottles', 1)">+</button>
+        </div>
+        
+        <button class="btn btn-primary" onclick="addToCart('600ml Bottled Water', 'bottles')">Add to Cart</button>
+      </div>
+
+      <!-- 19L Gallon -->
+      <div class="glass-card product-detail-card fade-in" style="transition-delay: 0.2s; grid-column: span auto;">
+        <img src="assets/gallon_19l.png" alt="19L Gallon" class="product-img">
+        <div>
+          <h3>19L Sigma Gallon</h3>
+          <p class="text-muted">For home and office dispensers. Local delivery only.</p>
+          <div class="price-display" id="price-gallon">Rp 65.000</div>
+        </div>
+
+        <div class="option-group">
+          <strong>Gallon Exchange</strong>
+          <label class="radio-label">
+            <input type="radio" name="gallon-type" value="exchange" checked onchange="calcGallon()">
+            I have an empty gallon to exchange (Base Rp 65.000)
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="gallon-type" value="new" onchange="calcGallon()">
+            I need a new gallon + bottle deposit (+ Rp 50.000)
+          </label>
+        </div>
+
+        <div class="option-group">
+          <strong>Hardware Upsells</strong>
+          <label class="checkbox-label">
+            <input type="checkbox" id="upsell-pump" onchange="calcGallon()">
+            Add Manual Hand Pump (+ Rp 30.000)
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="upsell-dispenser" onchange="calcGallon()">
+            Add Sigma Countertop Dispenser (+ Rp 150.000)
+          </label>
+        </div>
+
+        <div class="toggle-container">
+          <label class="switch">
+            <input type="checkbox" id="sub-toggle" onchange="calcGallon()">
+            <span class="slider"></span>
+          </label>
+          <div>
+            <strong>Subscribe & Save 10%</strong>
+            <p style="font-size: 0.8rem; margin:0;">Recurring local delivery.</p>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="addGallonToCart()">Add to Cart</button>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="cart-notification" id="cart-notif">Item added to cart!</div>
+
+  <script src="script.js"></script>
+  <script>
+    // State
+    const state = {
+      cups: { qty: 1, basePrice: 35000 },
+      bottles: { qty: 1, basePrice: 55000 }
+    };
+
+    function updateQty(item, change) {
+      const newQty = state[item].qty + change;
+      if (newQty < 1) return;
+      state[item].qty = newQty;
+      
+      document.getElementById(`qty-${item}`).innerText = `${newQty} Box${newQty > 1 ? 'es' : ''}`;
+      document.getElementById(`price-${item}`).innerText = formatRupiah(state[item].qty * state[item].basePrice);
+    }
+
+    function calcGallon() {
+      let total = 0;
+      
+      const type = document.querySelector('input[name="gallon-type"]:checked').value;
+      if (type === 'exchange') total += 65000;
+      if (type === 'new') total += 115000; // 65k + 50k deposit
+
+      if (document.getElementById('upsell-pump').checked) total += 30000;
+      if (document.getElementById('upsell-dispenser').checked) total += 150000;
+
+      const isSub = document.getElementById('sub-toggle').checked;
+      if (isSub) {
+        total = total * 0.9; // 10% discount
+      }
+
+      document.getElementById('price-gallon').innerText = formatRupiah(total);
+    }
+
+    function showNotif(msg) {
+      const notif = document.getElementById('cart-notif');
+      notif.innerText = msg;
+      notif.classList.add('show');
+      setTimeout(() => {
+        notif.classList.remove('show');
+      }, 3000);
+    }
+
+    function addToCart(name, item) {
+      showNotif(`Added ${state[item].qty} Box(es) of ${name} to cart.`);
+    }
+
+    function addGallonToCart() {
+      const isSub = document.getElementById('sub-toggle').checked;
+      const subText = isSub ? ' (Subscribed)' : '';
+      showNotif(`Added 19L Gallon${subText} to cart.`);
+    }
+
+    // Initialize
+    calcGallon();
+  </script>
+</body>
+</html>
