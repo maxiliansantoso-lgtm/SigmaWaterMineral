@@ -357,9 +357,86 @@ document.addEventListener('DOMContentLoaded', () => {
       right: 20px !important;
       opacity: 1 !important;
     }
+    .hamburger-btn {
+      display: none;
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      cursor: pointer;
+      padding: 0.5rem;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      z-index: 101;
+      order: -1;
+    }
+    #mobile-menu-drawer {
+      position: fixed;
+      top: 0;
+      left: -320px;
+      width: 100%;
+      max-width: 300px;
+      height: 100vh;
+      background: var(--bg-surface);
+      border-right: 1px solid var(--border-color);
+      z-index: 10000;
+      transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+    }
+    #mobile-menu-drawer.open {
+      left: 0 !important;
+    }
+    #mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    #mobile-menu-overlay.show {
+      display: block !important;
+      opacity: 1 !important;
+    }
+    .mobile-menu-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .mobile-menu-links a {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: color 0.2s;
+      display: block;
+    }
+    .mobile-menu-links a:hover, .mobile-menu-links a.active {
+      color: var(--text-main);
+    }
+    .nav-actions {
+      z-index: 101;
+      pointer-events: auto;
+    }
     @media (max-width: 768px) {
       .nav-links { display: none !important; }
+      .hamburger-btn { display: flex !important; }
       #cart-drawer { max-width: 320px; }
+      nav {
+        padding: 1rem 5%;
+      }
+      .nav-brand {
+        font-size: 1.2rem;
+      }
     }
   `;
   document.head.appendChild(style);
@@ -427,7 +504,60 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     navActions.appendChild(cartBtn);
 
+    // Create and append hamburger button for mobile menu
+    const hamburgerBtn = document.createElement('button');
+    hamburgerBtn.className = 'hamburger-btn';
+    hamburgerBtn.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    `;
+    navActions.insertBefore(hamburgerBtn, navActions.firstChild);
+
     nav.appendChild(navActions);
+
+    // Create and append Mobile Menu Drawer
+    const mobileMenuDrawer = document.createElement('div');
+    mobileMenuDrawer.id = 'mobile-menu-drawer';
+    mobileMenuDrawer.innerHTML = `
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; margin-bottom: 1rem;">
+        <div class="nav-brand" style="font-size: 1.2rem;">Σ SIGMA WATER</div>
+        <button id="close-mobile-menu" style="background: transparent; border: none; color: var(--text-main); font-size: 1.8rem; cursor: pointer; line-height: 1;">&times;</button>
+      </div>
+      <div class="mobile-menu-links">
+        <!-- Links will be cloned here -->
+      </div>
+    `;
+    document.body.appendChild(mobileMenuDrawer);
+
+    const mobileMenuOverlay = document.createElement('div');
+    mobileMenuOverlay.id = 'mobile-menu-overlay';
+    document.body.appendChild(mobileMenuOverlay);
+
+    // Clone nav links into mobile drawer
+    const mobileLinksContainer = mobileMenuDrawer.querySelector('.mobile-menu-links');
+    const originalLinks = document.querySelectorAll('.nav-links a');
+    originalLinks.forEach(link => {
+      if (!link.closest('.lang-selector')) {
+        const clonedLink = link.cloneNode(true);
+        mobileLinksContainer.appendChild(clonedLink);
+      }
+    });
+
+    const openMobileMenu = () => {
+      mobileMenuDrawer.classList.add('open');
+      mobileMenuOverlay.classList.add('show');
+    };
+    const closeMobileMenu = () => {
+      mobileMenuDrawer.classList.remove('open');
+      mobileMenuOverlay.classList.remove('show');
+    };
+
+    hamburgerBtn.addEventListener('click', openMobileMenu);
+    mobileMenuDrawer.querySelector('#close-mobile-menu').addEventListener('click', closeMobileMenu);
+    mobileMenuOverlay.addEventListener('click', closeMobileMenu);
 
     // Event Listener to open cart
     cartBtn.addEventListener('click', openCart);
