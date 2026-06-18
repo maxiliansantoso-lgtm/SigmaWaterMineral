@@ -166,6 +166,7 @@
       <a href="index.html">Home</a>
       <a href="shop.html" class="active">Shop</a>
       <a href="story.html">Our Story</a>
+      <a href="#" id="cart-toggle" onclick="event.preventDefault(); toggleCart();">🛒 Cart (<span id="cart-count">0</span>)</a>
     </div>
   </nav>
 
@@ -218,50 +219,22 @@
       </div>
 
       <!-- 19L Gallon -->
-      <div class="glass-card product-detail-card fade-in" style="transition-delay: 0.2s; grid-column: span auto;">
+      <div class="glass-card product-detail-card fade-in" style="transition-delay: 0.2s;">
         <img src="assets/gallon_19l.png" alt="19L Gallon" class="product-img">
         <div>
           <h3>19L Sigma Gallon</h3>
           <p class="text-muted">For home and office dispensers. Local delivery only.</p>
           <div class="price-display" id="price-gallon">Rp 65.000</div>
+          <p class="text-muted" style="font-size: 0.85rem;">~Rp 65.000 / gallon</p>
         </div>
-
-        <div class="option-group">
-          <strong>Gallon Exchange</strong>
-          <label class="radio-label">
-            <input type="radio" name="gallon-type" value="exchange" checked onchange="calcGallon()">
-            I have an empty gallon to exchange (Base Rp 65.000)
-          </label>
-          <label class="radio-label">
-            <input type="radio" name="gallon-type" value="new" onchange="calcGallon()">
-            I need a new gallon + bottle deposit (+ Rp 50.000)
-          </label>
+        
+        <div class="stepper">
+          <button onclick="updateQty('gallon', -1)">-</button>
+          <span id="qty-gallon">1 Gallon</span>
+          <button onclick="updateQty('gallon', 1)">+</button>
         </div>
-
-        <div class="option-group">
-          <strong>Hardware Upsells</strong>
-          <label class="checkbox-label">
-            <input type="checkbox" id="upsell-pump" onchange="calcGallon()">
-            Add Manual Hand Pump (+ Rp 30.000)
-          </label>
-          <label class="checkbox-label">
-            <input type="checkbox" id="upsell-dispenser" onchange="calcGallon()">
-            Add Sigma Countertop Dispenser (+ Rp 150.000)
-          </label>
-        </div>
-
-        <div class="toggle-container">
-          <label class="switch">
-            <input type="checkbox" id="sub-toggle" onchange="calcGallon()">
-            <span class="slider"></span>
-          </label>
-          <div>
-            <strong>Subscribe & Save 10%</strong>
-            <p style="font-size: 0.8rem; margin:0;">Recurring local delivery.</p>
-          </div>
-        </div>
-
-        <button class="btn btn-primary" onclick="addGallonToCart()">Add to Cart</button>
+        
+        <button class="btn btn-primary" onclick="addToCart('19L Sigma Gallon', 'gallon')">Add to Cart</button>
       </div>
 
     </div>
@@ -273,8 +246,9 @@
   <script>
     // State
     const state = {
-      cups: { qty: 1, basePrice: 35000 },
-      bottles: { qty: 1, basePrice: 55000 }
+      cups: { qty: 1, basePrice: 35000, label: 'Box' },
+      bottles: { qty: 1, basePrice: 55000, label: 'Box' },
+      gallon: { qty: 1, basePrice: 65000, label: 'Gallon' }
     };
 
     function updateQty(item, change) {
@@ -282,49 +256,14 @@
       if (newQty < 1) return;
       state[item].qty = newQty;
       
-      document.getElementById(`qty-${item}`).innerText = `${newQty} Box${newQty > 1 ? 'es' : ''}`;
+      const label = state[item].label;
+      document.getElementById(`qty-${item}`).innerText = `${newQty} ${label}${newQty > 1 && label === 'Box' ? 'es' : (newQty > 1 ? 's' : '')}`;
       document.getElementById(`price-${item}`).innerText = formatRupiah(state[item].qty * state[item].basePrice);
     }
 
-    function calcGallon() {
-      let total = 0;
-      
-      const type = document.querySelector('input[name="gallon-type"]:checked').value;
-      if (type === 'exchange') total += 65000;
-      if (type === 'new') total += 115000; // 65k + 50k deposit
-
-      if (document.getElementById('upsell-pump').checked) total += 30000;
-      if (document.getElementById('upsell-dispenser').checked) total += 150000;
-
-      const isSub = document.getElementById('sub-toggle').checked;
-      if (isSub) {
-        total = total * 0.9; // 10% discount
-      }
-
-      document.getElementById('price-gallon').innerText = formatRupiah(total);
-    }
-
-    function showNotif(msg) {
-      const notif = document.getElementById('cart-notif');
-      notif.innerText = msg;
-      notif.classList.add('show');
-      setTimeout(() => {
-        notif.classList.remove('show');
-      }, 3000);
-    }
-
     function addToCart(name, item) {
-      showNotif(`Added ${state[item].qty} Box(es) of ${name} to cart.`);
+      addToCartGlobal(item, name, state[item].qty, state[item].basePrice);
     }
-
-    function addGallonToCart() {
-      const isSub = document.getElementById('sub-toggle').checked;
-      const subText = isSub ? ' (Subscribed)' : '';
-      showNotif(`Added 19L Gallon${subText} to cart.`);
-    }
-
-    // Initialize
-    calcGallon();
   </script>
 </body>
 </html>
