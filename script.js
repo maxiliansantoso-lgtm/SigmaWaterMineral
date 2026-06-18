@@ -484,7 +484,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (nav) {
     const navActions = document.createElement('div');
     navActions.className = 'nav-actions';
-    navActions.style = 'display: flex; align-items: center; gap: 1rem; margin-left: 1.5rem;';
 
     // Move the language selector if it exists
     const langSelector = document.querySelector('.lang-selector');
