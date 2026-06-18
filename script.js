@@ -18,7 +18,7 @@ const setLang = (lang) => {
 let cart = JSON.parse(localStorage.getItem('sigma_cart')) || [];
 
 const products = {
-  cups: { id: 'cups', nameEn: '200ml Water Cups', nameId: 'Gelas Air 200ml', price: 25000, img: 'assets/bottle_300ml.png', unitEn: 'Box', unitId: 'Dus' },
+  cups: { id: 'cups', nameEn: '200ml Water Cups', nameId: 'Gelas Air 200ml', price: 25000, img: 'assets/cup_200ml.png', unitEn: 'Box', unitId: 'Dus' },
   bottles_330: { id: 'bottles_330', nameEn: '330ml Mineral Water', nameId: 'Air Mineral 330ml', price: 35000, img: 'assets/bottle_330ml.png', unitEn: 'Box', unitId: 'Dus' },
   alkali_500: { id: 'alkali_500', nameEn: '500ml Alkali Water', nameId: 'Air Alkali 500ml', price: 200000, img: 'assets/alkali_500ml.png', unitEn: 'Box', unitId: 'Dus' },
   bottles: { id: 'bottles', nameEn: '600ml Bottled Water', nameId: 'Air Botol 600ml', price: 45000, img: 'assets/bottle_600ml.png', unitEn: 'Box', unitId: 'Dus' },
