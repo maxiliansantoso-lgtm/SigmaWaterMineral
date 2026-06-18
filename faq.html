@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ | Sigma Water</title>
+  <title class="lang-en">FAQ | Sigma Water</title>
+  <title class="lang-id">Tanya Jawab | Sigma Water</title>
   <link rel="stylesheet" href="index.css">
   <style>
     .page-header {
@@ -59,18 +60,31 @@
   <nav>
     <div class="nav-brand">Σ SIGMA WATER</div>
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="shop.html">Shop</a>
-      <a href="story.html">Our Story</a>
-      <a href="faq.html" class="active">FAQ</a>
-      <a href="distributor.html">Distributor</a>
+      <a href="index.html" class="lang-en">Home</a>
+      <a href="index.html" class="lang-id">Beranda</a>
+      <a href="shop.html" class="lang-en">Shop</a>
+      <a href="shop.html" class="lang-id">Toko</a>
+      <a href="story.html" class="lang-en">Our Story</a>
+      <a href="story.html" class="lang-id">Tentang Kami</a>
+      <a href="faq.html" class="active lang-en">FAQ</a>
+      <a href="faq.html" class="active lang-id">Tanya Jawab</a>
+      <a href="distributor.html" class="lang-en">Distributor</a>
+      <a href="distributor.html" class="lang-id">Distributor</a>
+
+      <!-- Language Selector -->
+      <span class="lang-selector" style="margin-left: 2rem;">
+        <button id="lang-btn-en" onclick="setLang('en')" class="btn btn-outline" style="padding: 0.2rem 0.6rem; font-size: 0.8rem; border-radius: 4px; cursor: pointer;">EN</button>
+        <button id="lang-btn-id" onclick="setLang('id')" class="btn btn-outline" style="padding: 0.2rem 0.6rem; font-size: 0.8rem; border-radius: 4px; cursor: pointer;">ID</button>
+      </span>
     </div>
   </nav>
 
   <header class="page-header">
     <div class="container fade-in">
-      <h1>Pertanyaan Umum (FAQ)</h1>
-      <p class="text-muted">Temukan jawaban untuk pertanyaan yang sering diajukan mengenai Sigma Water.</p>
+      <h1 class="lang-en">Frequently Asked Questions</h1>
+      <h1 class="lang-id">Pertanyaan Umum (FAQ)</h1>
+      <p class="text-muted lang-en">Find answers to commonly asked questions about Sigma Water.</p>
+      <p class="text-muted lang-id">Temukan jawaban untuk pertanyaan yang sering diajukan mengenai Sigma Water.</p>
     </div>
   </header>
 
@@ -78,53 +92,68 @@
     <div class="container">
       <div class="faq-container">
         
+        <!-- FAQ 1 -->
         <div class="glass-card faq-item fade-in" onclick="toggleFaq(this)">
           <div class="faq-question">
-            <span>Bagaimana cara memesan Sigma Water?</span>
+            <span class="lang-en">How do I order Sigma Water?</span>
+            <span class="lang-id">Bagaimana cara memesan Sigma Water?</span>
             <span class="faq-icon">+</span>
           </div>
           <div class="faq-answer">
-            <p>Semua pemesanan dapat dilakukan secara mudah melalui WhatsApp di nomor 081584700009 atau dengan mengklik tombol "Order via WhatsApp" pada halaman Shop kami.</p>
+            <p class="lang-en">All orders can be easily placed through WhatsApp at 081584700009 or by clicking the "Order via WhatsApp" button on our Shop page.</p>
+            <p class="lang-id">Semua pemesanan dapat dilakukan secara mudah melalui WhatsApp di nomor 081584700009 atau dengan mengklik tombol "Pesan via WhatsApp" pada halaman Toko kami.</p>
           </div>
         </div>
 
+        <!-- FAQ 2 -->
         <div class="glass-card faq-item fade-in" onclick="toggleFaq(this)">
           <div class="faq-question">
-            <span>Berapa lama waktu pengiriman?</span>
+            <span class="lang-en">How long does delivery take?</span>
+            <span class="lang-id">Berapa lama waktu pengiriman?</span>
             <span class="faq-icon">+</span>
           </div>
           <div class="faq-answer">
-            <p>Untuk wilayah lokal Sulawesi Tengah, kami menyediakan pengiriman instan atau hari yang sama (sameday). Untuk wilayah luar kota, waktu pengiriman akan disesuaikan dengan layanan ekspedisi pilihan Anda.</p>
+            <p class="lang-en">For the local Central Sulawesi area, we offer instant or same-day delivery. For out-of-town areas, the delivery time will adjust according to your chosen courier service.</p>
+            <p class="lang-id">Untuk wilayah lokal Sulawesi Tengah, kami menyediakan pengiriman instan atau hari yang sama (sameday). Untuk wilayah luar kota, waktu pengiriman akan disesuaikan dengan layanan ekspedisi pilihan Anda.</p>
           </div>
         </div>
 
+        <!-- FAQ 3 -->
         <div class="glass-card faq-item fade-in" onclick="toggleFaq(this)">
           <div class="faq-question">
-            <span>Apakah ada jumlah minimal pemesanan?</span>
+            <span class="lang-en">Is there a minimum order quantity?</span>
+            <span class="lang-id">Apakah ada jumlah minimal pemesanan?</span>
             <span class="faq-icon">+</span>
           </div>
           <div class="faq-answer">
-            <p>Produk Gelas (300ml) dan Botol (600ml) dijual per dus (isi 24 gelas/botol). Sedangkan untuk Galon 19L dapat dibeli secara satuan tanpa minimal pemesanan.</p>
+            <p class="lang-en">Cup (300ml) and Bottle (600ml) products are sold strictly by the box (containing 24 units). Meanwhile, the 19L Gallon can be purchased individually without a minimum order quantity.</p>
+            <p class="lang-id">Produk Gelas (300ml) dan Botol (600ml) dijual per dus (isi 24 gelas/botol). Sedangkan untuk Galon 19L dapat dibeli secara satuan tanpa minimal pemesanan.</p>
           </div>
         </div>
 
+        <!-- FAQ 4 -->
         <div class="glass-card faq-item fade-in" onclick="toggleFaq(this)">
           <div class="faq-question">
-            <span>Dari mana sumber air Sigma Water?</span>
+            <span class="lang-en">Where does Sigma Water source its water from?</span>
+            <span class="lang-id">Dari mana sumber air Sigma Water?</span>
             <span class="faq-icon">+</span>
           </div>
           <div class="faq-answer">
-            <p>Air kami bersumber dari akuifer alami Sulawesi Tengah yang terlindungi di bawah lapisan batuan vulkanik kuno, menghasilkan air murni dengan kandungan mineral seimbang dan pH yang ideal.</p>
+            <p class="lang-en">Our water is sourced from protected, natural deep aquifers in Central Sulawesi beneath ancient volcanic rock layers. This produces pure mineral water with a balanced mineral profile and ideal pH.</p>
+            <p class="lang-id">Air kami bersumber dari akuifer alami Sulawesi Tengah yang terlindungi di bawah lapisan batuan vulkanik kuno, menghasilkan air murni dengan kandungan mineral seimbang dan pH yang ideal.</p>
           </div>
         </div>
 
+        <!-- FAQ 5 -->
         <div class="glass-card faq-item fade-in" onclick="toggleFaq(this)">
           <div class="faq-question">
-            <span>Bagaimana cara penukaran galon kosong?</span>
+            <span class="lang-en">How do I exchange empty gallons?</span>
+            <span class="lang-id">Bagaimana cara penukaran galon kosong?</span>
             <span class="faq-icon">+</span>
           </div>
           <div class="faq-answer">
-            <p>Anda dapat menukarkan galon kosong merek Sigma Anda saat pengantaran galon baru. Cukup informasikan kepada admin WhatsApp kami saat melakukan pemesanan.</p>
+            <p class="lang-en">You can exchange your empty Sigma-branded gallons when your new gallons are delivered. Simply notify our WhatsApp administrator when placing your order.</p>
+            <p class="lang-id">Anda dapat menukarkan galon kosong merek Sigma Anda saat pengantaran galon baru. Cukup informasikan kepada admin WhatsApp kami saat melakukan pemesanan.</p>
           </div>
         </div>
 
@@ -137,22 +166,32 @@
       <div class="footer-content">
         <div class="footer-col">
           <div class="nav-brand mb-1">Σ SIGMA WATER</div>
-          <p class="text-muted">Pure mineral water from the deep aquifers of Central Sulawesi, Indonesia. Established in 2016.</p>
+          <p class="text-muted lang-en">Pure mineral water from the deep aquifers of Central Sulawesi, Indonesia. Established in 2016.</p>
+          <p class="text-muted lang-id">Air mineral murni dari akuifer dalam Sulawesi Tengah, Indonesia. Didirikan sejak 2016.</p>
         </div>
         <div class="footer-col">
-          <h4>Fulfillment Shop</h4>
-          <a href="shop.html">300ml Cups</a>
-          <a href="shop.html">600ml Bottles</a>
-          <a href="shop.html">19L Gallons</a>
+          <h4 class="lang-en">Fulfillment Shop</h4>
+          <h4 class="lang-id">Toko Pemenuhan</h4>
+          <a href="shop.html" class="lang-en">300ml Cups</a>
+          <a href="shop.html" class="lang-id">Gelas 300ml</a>
+          <a href="shop.html" class="lang-en">600ml Bottles</a>
+          <a href="shop.html" class="lang-id">Botol 600ml</a>
+          <a href="shop.html" class="lang-en">19L Gallons</a>
+          <a href="shop.html" class="lang-id">Galon 19L</a>
         </div>
         <div class="footer-col">
-          <h4>Corporate</h4>
-          <a href="story.html">Our Story</a>
-          <a href="story.html#sustainability">Sustainability</a>
-          <a href="distributor.html">Mitra Distributor</a>
+          <h4 class="lang-en">Corporate</h4>
+          <h4 class="lang-id">Perusahaan</h4>
+          <a href="story.html" class="lang-en">Our Story</a>
+          <a href="story.html" class="lang-id">Tentang Kami</a>
+          <a href="story.html#sustainability" class="lang-en">Sustainability</a>
+          <a href="story.html#sustainability" class="lang-id">Keberlanjutan</a>
+          <a href="distributor.html" class="lang-en">Mitra Distributor</a>
+          <a href="distributor.html" class="lang-id">Mitra Distributor</a>
         </div>
         <div class="footer-col">
-          <h4>Contact Us</h4>
+          <h4 class="lang-en">Contact Us</h4>
+          <h4 class="lang-id">Hubungi Kami</h4>
           <p class="text-muted mb-1">WhatsApp Support:</p>
           <a href="https://wa.me/6281584700009" target="_blank" style="color: var(--accent-blue); font-weight: 600;">081584700009</a>
         </div>

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Story | Sigma Water</title>
+  <title class="lang-en">Our Story | Sigma Water</title>
+  <title class="lang-id">Tentang Kami | Sigma Water</title>
   <link rel="stylesheet" href="index.css">
   <style>
     .story-hero {
@@ -100,18 +101,31 @@
   <nav>
     <div class="nav-brand">Σ SIGMA WATER</div>
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="shop.html">Shop</a>
-      <a href="story.html" class="active">Our Story</a>
-      <a href="faq.html">FAQ</a>
-      <a href="distributor.html">Distributor</a>
+      <a href="index.html" class="lang-en">Home</a>
+      <a href="index.html" class="lang-id">Beranda</a>
+      <a href="shop.html" class="lang-en">Shop</a>
+      <a href="shop.html" class="lang-id">Toko</a>
+      <a href="story.html" class="active lang-en">Our Story</a>
+      <a href="story.html" class="active lang-id">Tentang Kami</a>
+      <a href="faq.html" class="lang-en">FAQ</a>
+      <a href="faq.html" class="lang-id">Tanya Jawab</a>
+      <a href="distributor.html" class="lang-en">Distributor</a>
+      <a href="distributor.html" class="lang-id">Distributor</a>
+
+      <!-- Language Selector -->
+      <span class="lang-selector" style="margin-left: 2rem;">
+        <button id="lang-btn-en" onclick="setLang('en')" class="btn btn-outline" style="padding: 0.2rem 0.6rem; font-size: 0.8rem; border-radius: 4px; cursor: pointer;">EN</button>
+        <button id="lang-btn-id" onclick="setLang('id')" class="btn btn-outline" style="padding: 0.2rem 0.6rem; font-size: 0.8rem; border-radius: 4px; cursor: pointer;">ID</button>
+      </span>
     </div>
   </nav>
 
   <header class="story-hero fade-in">
     <div class="container story-hero-content">
-      <h1>Born in Central Sulawesi.</h1>
-      <h2>Perfected by Nature.</h2>
+      <h1 class="lang-en">Born in Central Sulawesi.</h1>
+      <h1 class="lang-id">Lahir di Sulawesi Tengah.</h1>
+      <h2 class="lang-en">Perfected by Nature.</h2>
+      <h2 class="lang-id">Disempurnakan oleh Alam.</h2>
     </div>
   </header>
 
@@ -120,37 +134,50 @@
       
       <div class="content-block fade-in">
         <div class="sigma-symbol">∑</div>
-        <h2>The Philosophy of Sigma</h2>
-        <p class="text-muted" style="font-size: 1.2rem; line-height: 1.8;">
+        <h2 class="lang-en">The Philosophy of Sigma</h2>
+        <h2 class="lang-id">Filosofi Sigma</h2>
+        <p class="text-muted lang-en" style="font-size: 1.2rem; line-height: 1.8;">
           Why Sigma? The symbol <strong>∑</strong> represents the "perfect sum" in mathematics. For us, it represents the exact mathematical precision of nature's finest minerals, our pristine geographical source, and cutting-edge hydration technology coming together in perfect harmony.
+        </p>
+        <p class="text-muted lang-id" style="font-size: 1.2rem; line-height: 1.8;">
+          Mengapa Sigma? Simbol <strong>∑</strong> melambangkan "jumlah sempurna" dalam matematika. Bagi kami, ini mewakili ketepatan matematis dari mineral terbaik alam, sumber geografis kami yang murni, dan teknologi hidrasi mutakhir yang menyatu dalam keharmonisan sempurna.
         </p>
       </div>
 
       <div class="content-block fade-in">
-        <h2>Our Heritage</h2>
+        <h2 class="lang-en">Our Heritage</h2>
+        <h2 class="lang-id">Warisan Kami</h2>
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <h3>2016</h3>
-            <p class="text-muted">Discovery of the virgin aquifers beneath the ancient volcanic layers of Central Sulawesi.</p>
+            <p class="text-muted lang-en">Discovery of the virgin aquifers beneath the ancient volcanic layers of Central Sulawesi.</p>
+            <p class="text-muted lang-id">Penemuan akuifer perawan di bawah lapisan vulkanik purba di Sulawesi Tengah.</p>
           </div>
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <h3>2018</h3>
-            <p class="text-muted">Establishment of our state-of-the-art filtration facility, ensuring zero contamination.</p>
+            <p class="text-muted lang-en">Establishment of our state-of-the-art filtration facility, ensuring zero contamination.</p>
+            <p class="text-muted lang-id">Pembangunan fasilitas filtrasi canggih kami, memastikan nol kontaminasi.</p>
           </div>
           <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <h3>Today</h3>
-            <p class="text-muted">Delivering the perfect sum of hydration to homes, offices, and events across the region.</p>
+            <h3 class="lang-en">Today</h3>
+            <h3 class="lang-id">Hari Ini</h3>
+            <p class="text-muted lang-en">Delivering the perfect sum of hydration to homes, offices, and events across the region.</p>
+            <p class="text-muted lang-id">Mengirimkan hidrasi dengan jumlah sempurna ke rumah, kantor, dan acara di seluruh wilayah.</p>
           </div>
         </div>
       </div>
 
-      <div class="content-block glass-card fade-in" style="margin-top: 4rem;">
-        <h2>Commitment to the Source</h2>
-        <p class="text-muted">
+      <div id="sustainability" class="content-block glass-card fade-in" style="margin-top: 4rem;">
+        <h2 class="lang-en">Commitment to the Source</h2>
+        <h2 class="lang-id">Komitmen pada Sumber Air</h2>
+        <p class="text-muted lang-en">
           We believe in taking only what nature can replenish. Our environmental preservation efforts ensure that the ancient volcanic layers and deep aquifers of Central Sulawesi remain untouched, pure, and sustainable for generations to come. Every drop of Sigma Water is a testament to our respect for this pristine ecosystem.
+        </p>
+        <p class="text-muted lang-id">
+          Kami percaya untuk hanya mengambil apa yang dapat diisi kembali oleh alam. Upaya pelestarian lingkungan kami memastikan bahwa lapisan vulkanik purba dan akuifer dalam di Sulawesi Tengah tetap tidak terjamah, murni, dan berkelanjutan untuk generasi mendatang. Setiap tetes Sigma Water adalah bukti penghormatan kami terhadap ekosistem yang murni ini.
         </p>
       </div>
 
@@ -162,22 +189,32 @@
       <div class="footer-content">
         <div class="footer-col">
           <div class="nav-brand mb-1">Σ SIGMA WATER</div>
-          <p class="text-muted">Pure mineral water from the deep aquifers of Central Sulawesi, Indonesia. Established in 2016.</p>
+          <p class="text-muted lang-en">Pure mineral water from the deep aquifers of Central Sulawesi, Indonesia. Established in 2016.</p>
+          <p class="text-muted lang-id">Air mineral murni dari akuifer dalam Sulawesi Tengah, Indonesia. Didirikan sejak 2016.</p>
         </div>
         <div class="footer-col">
-          <h4>Fulfillment Shop</h4>
-          <a href="shop.html">300ml Cups</a>
-          <a href="shop.html">600ml Bottles</a>
-          <a href="shop.html">19L Gallons</a>
+          <h4 class="lang-en">Fulfillment Shop</h4>
+          <h4 class="lang-id">Toko Pemenuhan</h4>
+          <a href="shop.html" class="lang-en">300ml Cups</a>
+          <a href="shop.html" class="lang-id">Gelas 300ml</a>
+          <a href="shop.html" class="lang-en">600ml Bottles</a>
+          <a href="shop.html" class="lang-id">Botol 600ml</a>
+          <a href="shop.html" class="lang-en">19L Gallons</a>
+          <a href="shop.html" class="lang-id">Galon 19L</a>
         </div>
         <div class="footer-col">
-          <h4>Corporate</h4>
-          <a href="story.html">Our Story</a>
-          <a href="story.html#sustainability">Sustainability</a>
-          <a href="distributor.html">Mitra Distributor</a>
+          <h4 class="lang-en">Corporate</h4>
+          <h4 class="lang-id">Perusahaan</h4>
+          <a href="story.html" class="lang-en">Our Story</a>
+          <a href="story.html" class="lang-id">Tentang Kami</a>
+          <a href="story.html#sustainability" class="lang-en">Sustainability</a>
+          <a href="story.html#sustainability" class="lang-id">Keberlanjutan</a>
+          <a href="distributor.html" class="lang-en">Mitra Distributor</a>
+          <a href="distributor.html" class="lang-id">Mitra Distributor</a>
         </div>
         <div class="footer-col">
-          <h4>Contact Us</h4>
+          <h4 class="lang-en">Contact Us</h4>
+          <h4 class="lang-id">Hubungi Kami</h4>
           <p class="text-muted mb-1">WhatsApp Support:</p>
           <a href="https://wa.me/6281584700009" target="_blank" style="color: var(--accent-blue); font-weight: 600;">081584700009</a>
         </div>
