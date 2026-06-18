@@ -204,8 +204,46 @@
         <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary" style="text-align: center;">Order via WhatsApp</a>
       </div>
 
-      <!-- 600ml Bottles -->
+      <!-- 330ml Water -->
+      <div class="glass-card product-detail-card fade-in" style="transition-delay: 0.05s;">
+        <img src="assets/bottle_330ml.png" alt="330ml Mineral Water" class="product-img">
+        <div>
+          <h3>330ml Mineral Water</h3>
+          <p class="text-muted">Compact and clean design. Sold strictly by the box.</p>
+          <div class="price-display" id="price-bottles_330">Rp 40.000</div>
+          <p class="text-muted" style="font-size: 0.85rem;">24 bottles per box</p>
+        </div>
+
+        <div class="stepper">
+          <button onclick="updateQty('bottles_330', -1)">-</button>
+          <span id="qty-bottles_330">1 Box</span>
+          <button onclick="updateQty('bottles_330', 1)">+</button>
+        </div>
+
+        <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary" style="text-align: center;">Order via WhatsApp</a>
+      </div>
+
+      <!-- 500ml Sparkling Water -->
       <div class="glass-card product-detail-card fade-in" style="transition-delay: 0.1s;">
+        <img src="assets/sparkling_500ml.png" alt="500ml Sparkling Water" class="product-img">
+        <div>
+          <h3>500ml Sparkling Water</h3>
+          <p class="text-muted">Premium carbonated refreshment. Sold strictly by the box.</p>
+          <div class="price-display" id="price-sparkling_500">Rp 100.000</div>
+          <p class="text-muted" style="font-size: 0.85rem;">24 bottles per box</p>
+        </div>
+
+        <div class="stepper">
+          <button onclick="updateQty('sparkling_500', -1)">-</button>
+          <span id="qty-sparkling_500">1 Box</span>
+          <button onclick="updateQty('sparkling_500', 1)">+</button>
+        </div>
+
+        <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary" style="text-align: center;">Order via WhatsApp</a>
+      </div>
+
+      <!-- 600ml Bottles -->
+      <div class="glass-card product-detail-card fade-in" style="transition-delay: 0.15s;">
         <img src="assets/bottle_600ml.png" alt="600ml Bottled Water" class="product-img">
         <div>
           <h3>600ml Bottled Water</h3>
@@ -223,8 +261,27 @@
         <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary" style="text-align: center;">Order via WhatsApp</a>
       </div>
 
-      <!-- 19L Gallon -->
+      <!-- 1500ml Water -->
       <div class="glass-card product-detail-card fade-in" style="transition-delay: 0.2s;">
+        <img src="assets/bottle_1500ml.png" alt="1500ml Mineral Water" class="product-img">
+        <div>
+          <h3>1500ml Mineral Water</h3>
+          <p class="text-muted">Large size for family or office. Sold strictly by the box.</p>
+          <div class="price-display" id="price-bottles_1500">Rp 70.000</div>
+          <p class="text-muted" style="font-size: 0.85rem;">24 bottles per box</p>
+        </div>
+
+        <div class="stepper">
+          <button onclick="updateQty('bottles_1500', -1)">-</button>
+          <span id="qty-bottles_1500">1 Box</span>
+          <button onclick="updateQty('bottles_1500', 1)">+</button>
+        </div>
+
+        <a href="https://wa.link/04fu4m" target="_blank" class="btn btn-primary" style="text-align: center;">Order via WhatsApp</a>
+      </div>
+
+      <!-- 19L Gallon -->
+      <div class="glass-card product-detail-card fade-in" style="transition-delay: 0.25s;">
         <img src="assets/gallon_19l.png" alt="19L Gallon" class="product-img">
         <div>
           <h3>19L Sigma Gallon</h3>
@@ -280,7 +337,10 @@
     // State
     const state = {
       cups: { qty: 1, basePrice: 35000, label: 'Box' },
+      bottles_330: { qty: 1, basePrice: 40000, label: 'Box' },
+      sparkling_500: { qty: 1, basePrice: 100000, label: 'Box' },
       bottles: { qty: 1, basePrice: 55000, label: 'Box' },
+      bottles_1500: { qty: 1, basePrice: 70000, label: 'Box' },
       gallon: { qty: 1, basePrice: 65000, label: 'Gallon' }
     };
 
